@@ -73,7 +73,7 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
- * 2013-11-13  v0.1.1  修复文件类型不支持给予提示，增加lang语言值
+ * 2013-11-13  v0.1.1  调整测试用例, 增加文件格式过滤，增加lang语言值
  * 2013-11-12  v0.1.0  完成翻译语言包功能
 
 
