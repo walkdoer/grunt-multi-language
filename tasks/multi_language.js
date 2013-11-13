@@ -58,7 +58,7 @@ module.exports = function(grunt) {
             langKey,
             langValue,
             replaceRegExp;
-
+        langObject.lang = langName;
         for(langKey in langObject) {
           replaceRegExp = new RegExp([tagOpen, langKey, tagClose].join(''), 'g');
           langValue = langObject[langKey];
@@ -72,7 +72,7 @@ module.exports = function(grunt) {
         grunt.log.error('something is wrong when translate file ' + abspath + ' please check your language resources file. Exception Message:' + e.message);
       }
       grunt.file.write(destFileFullPath, translateContent);
-      grunt.log.writeln('File "' +  destFileFullPath + '" created.');
+      grunt.log.writeln('File "' +  destFileFullPath + '" translated.');
     });
   });
 
