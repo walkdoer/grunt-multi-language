@@ -53,6 +53,10 @@ module.exports = function(grunt) {
           newFileName = getFileNameWithLangTAg(srcFileName, langName),
           destFileFullPath = [destPath, newFileName].join('');
       try {
+        if (filename.lastIndexOf('.') !== filename.lastIndexOf('json') - 1) {
+          grunt.log.warn('language file can only be json file, but file ' + abspath + 'is not fit the condition;');
+          return;
+        }
         //取出语言包对象
         var langObject = grunt.file.readJSON(abspath),
             langKey,
@@ -68,11 +72,11 @@ module.exports = function(grunt) {
             grunt.log.warn("can't translate language key:" + langKey);
           }
         }
+        grunt.file.write(destFileFullPath, translateContent);
+        grunt.log.writeln('File "' +  destFileFullPath + '" translated.');
       } catch (e) {
         grunt.log.error('something is wrong when translate file ' + abspath + ' please check your language resources file. Exception Message:' + e.message);
       }
-      grunt.file.write(destFileFullPath, translateContent);
-      grunt.log.writeln('File "' +  destFileFullPath + '" translated.');
     });
   });
 

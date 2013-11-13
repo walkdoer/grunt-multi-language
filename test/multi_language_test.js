@@ -28,11 +28,15 @@ exports.multi_language = {
     done();
   },
   translate: function(test) {
-    test.expect(1);
+    test.expect(2);
 
-    var actual = grunt.file.read('tmp/test.en.html');
-    var expected = grunt.file.read('test/expected/test.en.html');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    var actualEn = grunt.file.read('tmp/test.en.html');
+    var expectedEn = grunt.file.read('test/expected/test.en.html');
+    test.equal(actualEn, expectedEn, 'should describe what the default behavior is.');
+
+    var actualRu = grunt.file.read('tmp/test.ru.html');
+    var expectedRu = grunt.file.read('test/expected/test.ru.html');
+    test.equal(actualRu, expectedRu, 'should describe what the default behavior is.');
 
     test.done();
   }
